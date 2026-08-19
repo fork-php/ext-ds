@@ -82,7 +82,7 @@ static void php_ds_seq_unset_dimension
         index = Z_LVAL_P(offset);
 
     } else {
-        if (zend_parse_parameter(ZEND_PARSE_PARAMS_QUIET, 1, offset, "l", &index) == FAILURE) {
+        if (!zend_parse_arg_long(offset, &index, NULL, 0, 1)) {
             return;
         }
     }
